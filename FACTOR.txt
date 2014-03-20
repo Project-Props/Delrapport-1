@@ -3,18 +3,6 @@ Problem definition
 
 - Define the scope of the system in terms of functionality, constraints, and deliverables
 
-Initial Software Project Management Plan (SPMP):
-
-- Provide a overview of the project
-- Result
-- Work structure
-- Roles
-- Responsibilities
-- Schedule
-- Resources
-- Risks
-
-
 System Definition
 -----------------
 
@@ -74,3 +62,16 @@ Deliverables
 - MySQL database
 - Instructions in the form of meetings of papers explaining the system.
 - Probably also some support during the initial start up phase.
+
+Initial Software Project Management Plan (SPMP):
+================================================
+
+- Provide a overview of the project
+- Result
+- Work structure
+- Roles
+- Responsibilities
+- Schedule
+- Resources
+- Risks
+
