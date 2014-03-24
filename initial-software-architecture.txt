@@ -1,0 +1,164 @@
+Initial software architecture
+=============================
+
+Design goals
+------------
+
+First of we would like to note that this architecture is in a very early phase
+and will most likely change as we move forward in the process
+
+Parts of the system that should be optimized
+
+Given the circumstances that this application will be built and deployed under
+(namely that we might not be the ones who end up maintaining it) it is important
+for the design of the system to be well documented and well structured.
+
+We have the following overall design goals for the system:
+
+- The system should be factored into meaning full subsystems each with a well
+  defined responsibility.
+- The system should make use of both unit and integration level tests as this
+  will allow for easier refactoring and maintenance of the system. This is
+  especially important since we might not be the ones who will be responsible
+  for maintaining the system.
+
+Initial system design
+---------------------
+
+### Subsystem decomposition
+
+Given that our application will most likely be a website backed by a relation
+database there will be three primary layers to it:
+
+1. The database.
+2. The domain model.
+3. The web front end.
+
+Each layer will have their own responsibility.
+
+#### The database
+
+Here all data will be stored. It will most likely be some sort of relation
+database.
+
+#### The domain model
+
+In web terms this will be the back end of the website. This is where domain
+concepts such as props and performances are given attributes and methods that
+given them behavior and allow them to interact with each other and the user.
+This is also where important features of the application will be modeled such as
+how a search can be performed on the database.
+
+#### The web front end
+
+This layer will be a graphical representation of the data and relationships
+between the different data points built by the back end. This is also the part
+of application that the end user will interact with.
+
+Since we are building a web application this layer will be built using the
+standard set of web technologies, HTML, CSS, and JavaScript.
+
+Each of these three subsystems will each be composed of their own smaller
+subsystems that each have a well defined purpose and responsibility.
+
+For decomposing the back and front end and the relationships between them we
+have chosen to use the MVC design pattern. This lets us split the system up into
+small manageable parts with a clear purpose and responsibility. This will make
+the code more maintainable and more suitable to change.
+Depending on the domain your application lives in the separation and
+responsibilities of the models, controllers, and views might be slightly
+different. Here are some initial thoughts about what each subsystem will be
+responsible for.
+
+#### Model
+
+The model layer will contain code that models the entities in the domain. For
+our application there will most likely be a props models, a performance/play
+model and others.
+
+This is also the layer that is responsible for communicating with the database
+and managing the persistence of the objects.
+
+#### View
+
+The view layer will contain the graphical representation of the model layer that
+the user can view and interact with.
+
+#### Controller
+
+The controller layer is responsible to managing the interactions that the user
+makes with the model layer. A user will be performing actions like navigating
+between pages, submitting forms, searching for props, and so on. It will be the
+controllers responsibility to map these actions into the model layer and
+construct new views for the user. It essentially acts as glue code between the
+user and the domain/model layer.
+
+### Dependencies
+
+The MVC design pattern is very useful for managing and limiting dependencies
+between the different subsystems. An important part of MVC is that the model
+layer and view layer should be as little dependent on each other as possible.
+This will make it easier to change each part independently.
+
+It is however not possible to make the controllers free of dependencies since
+they sit in between the views and the model. Therefor they are naturally
+dependent on both the views and the model. However MVC helps with this by
+providing each subsystem with single responsibility thus making each of them
+smaller and more well defined.
+
+Initial subsystem components
+----------------------------
+
+### Views
+
+At this early point it is hard to say which views the application will contain
+but there will likely be views related to the following areas:
+
+- View that lists props. This could be a listing of all props in the database
+  but more likely a list filtered based on some search criteria.
+- View for doing a search. This view would contain a form with fields for
+  filtering through the props.
+- View the shows a specific prop. There will most likely be a view that shows
+  the information available about a single prop and its relationships.
+- Administrative views. These would be views that let administrators perform
+  usual operations on the data (create new, update existing, and delete
+  existing).
+
+### Models
+
+Given the views listed above our model layer will most likely include:
+
+- User model. If the application ends up containing authentication and users
+  with different roles then there will also be a model responsible for that
+  behavior.
+- Prop model. Given that this application is about props there will most
+  certainly be a prop model that describes the properties and behavior of props.
+- Performance model. If props need to be related to performances then there will
+  also be a performance model.
+
+Given that it should be possible to persist the model objects in the database
+there will need to a subsystem that handles that. It also makes sense for this
+system to be responsible for building model objects from the data in the
+database. Exactly how this will be modeled is too early to say but given that
+this is behavior is shared between all the models it might be modeled with
+inheritance or object composition.
+
+### Controllers
+
+Specifically which controllers the system will include depend on which views we
+want and how they are grouped together. However since this application is
+primarily about searching there will most likely be a controller that is
+responsible for receiving a search query, then translating that to a query the
+model layer can perform and then rendering a view containing the results to the
+user.
+
+Diagrams
+--------
+
+### Class diagrams
+
+See appendix X for an initial class diagram of the application.
+
+### ER diagram
+
+See appendix X for an initial ER diagram of the database layer.
