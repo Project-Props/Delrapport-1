@@ -161,8 +161,4 @@ Diagrams
 
 ### Class diagrams
 
-See appendix X for an initial class diagram of the application.
-
-### ER diagram
-
-See appendix X for an initial ER diagram of the database layer.
+See appendix X for an initial class diagram of the model layer.
