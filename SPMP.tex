@@ -86,7 +86,11 @@ All changes to the project management plan must be agreed to by all participants
 All artifacts will conform to the theatres standards. \\
 noget med PHP og mySQL??
 \subsection{Definitions}
-noget med SKILT
+The Royal Danish Theatre uses a lot of different terms in their work, and some of these should also be used in the future database system. The terms we have been presented to so far are listed with a short description below: \\
+Every production has a unique 8-digit number, containing of 4 random digits followed by a dash and premiere-year for this particular production. (There can be multiple productions of, for instance the same play, which then have different premiere-years) \\
+If a production is \textit{SKILT}, it means that it has been discarded and the props are back in the storage room. \\
+If a production is \textit{I REPERTOIRE}, it is being played in the current season and the props are in use. \\
+If the production is \textit{I CONTAINER} or similar, the production is not yet \textit{SKILT} nor is it currently being played, and the props are therefore occupied but not in use.
 \subsection{Project Organization}
 \subsubsection{External interfaces}
 The props database and appertaining web-interface will be managed and developed by David Pedersen, Helena Bach and Louise Knudsen. \\
@@ -164,5 +168,248 @@ As one of the purposes of developing the new system, is to make it possible for 
 During the initialisation phase support will be offered free of charge.
 \section{Initial software architecture} 
 \section{Project Agreement definition}
-
+As mentioned in previous sections our final requirement elicitation and project agreement will be formalized on April 9th, at our meeting with the chairman of the props department and the XX. To prepare for the meeting and make an outline for this final definition we have made the following UML use case diagram (Se Appendix X for use cases) and functional/nonfuntional requirements overview.
+\subsection{UML use case diagram}
+\includegraphics[scale=0.6]{/Users/louiseweesgaardknudsen/Desktop/use.png}
+\subsection{Nonfunctional Requirements}
+\begin{itemize}
+\item The system should be web-based and usable on standard PC's and tablets, and supported by every OS.
+\item The webapplication should be user friendly and easy to navigate. The most commonly used functionalities, namely the run- and set-up-lists should not be more than 3 clicks away.
+\item It should be possible for the XX (Martin) to maintain and support, and possibly expand the system after product-delivery. Therefore the system will be developed using MySQL and PHP, which is familiar to the XX.
+\item The system should be able to communicate with the existing media-database Cumulus.
+\item noget med firewall login og halløj.
+\item The interface should be in Danish.
+\end{itemize}
+\subsection{Functional Requirements}
+\begin{itemize}
+\item It should be possible to do cross search for props, productions and suppliers.
+\item It should be possible to add, edit and delete props, productions and suppliers.
+\item noget med Kongeplanen
+\item It should be possible to print run- and set-up-lists.
+\item noget med drag/drop props til run- and set-up-lists.
+\end{itemize}
+\subsection{Use cases}
+1. Tilføj Rek
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{AddProp} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Employee}} \\
+& \text{Communicates with \texttt{MySQL}} \\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{Employee} activates the "Add prop"  function.}\\
+\quad \quad \quad \text{2. \texttt{Props 2.0} responds by presenting a form to the \texttt{Employee}.} \\
+\text{3. The \texttt{Employee} fills out the form with the relevant prop-info,} \\ \quad \text{and submits it.} \\
+\quad \quad \quad \text{4. \texttt{Props 2.0} receives the form, and the MySQL database} \\ \quad \quad \quad \quad \text{gets updated. \texttt{Props 2.0} displays a confirmation of the}\\ \quad \quad \quad \quad \text{update.}
+\end{array} \\
+\hline
+\textit{Entry condition} & \text{The \texttt{Employee} must be logged into the Theatre's Wi-Fi} \\
+\hline
+\textit{Exit condition} & \text{The \texttt{Employee} has received a confirmation OR} \\ & \text{An explanation indicating why the transaction could not be processed.} \\
+\hline
+\textit{Quality requirements} & \text{Not yet defined} \\
+\hline
+\end{array}
+\]
+2. Tilføj forestilling
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{AddProduction} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Chairman}} \\
+& \text{Communicates with \texttt{MySQL}} \\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{Chairman} activates the "Add production" function.}\\
+\quad \quad \quad \text{2. \texttt{Props 2.0} responds by presenting a form to the \texttt{Chairman}.} \\
+\text{3. The \texttt{Chairman} fills out the form with the relevant production-info,} \\ \quad \text{and submits it.} \\
+\quad \quad \quad \text{4. \texttt{Props 2.0} receives the form, and the MySQL database} \\ \quad \quad \quad \quad \text{gets updated. \texttt{Props 2.0} displays a confirmation of the}\\ \quad \quad \quad \quad \text{update.}
+\end{array} \\
+\hline
+\textit{Entry condition} & \text{The \texttt{Chairman} must be logged into the Theatre's Wi-Fi} \\
+\hline
+\textit{Exit condition} & \text{The \texttt{Chairman} has received a confirmation OR} \\ & \text{An explanation indicating why the transaction could not be processed.} \\
+\hline
+\textit{Quality requirements} & \text{Not yet defined}\\
+\hline
+\end{array}
+\]
+3. Søg
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{Search} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Employee}} \\
+& \text{Communicates with \texttt{MySQL}} \\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{Employee} activates the "Search" function.}\\
+\quad \quad \quad \text{2. \texttt{Props 2.0} responds by presenting a form to the \texttt{Employee}.} \\
+\text{3. The \texttt{Employee} fills out the form with the search criteria,} \\ \quad \text{and submits it.} \\
+\quad \quad \quad \text{4. \texttt{Props 2.0} receives the form, the MySQL database} \\ \quad \quad \quad \quad \text{returns the matching data and \texttt{Props 2.0} displays it}
+\end{array} \\
+\hline
+\textit{Entry condition} & \text{The \texttt{Employee} must be logged into the Theatre's Wi-Fi} \\
+\hline
+\textit{Exit condition} & \text{The \texttt{Employee} has received a list of matching data OR} \\ & \text{A "No match"  message} \\
+\hline
+\textit{Quality requirements} & \text{Not yet defined} \\
+\hline
+\end{array}
+\]
+We have not yet fully specified the search criteria with client. We know that separate search-functions for productions, props and suppliers are wanted, but until we have the detailed criteria, we will not include these as specific use cases.  
+4. Vælg rek
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{SelectProp} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Employee}} \\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{Employee} selects a prop from the results of a premade search} \\
+\quad \quad \quad \text{2. \texttt{Props 2.0} responds by presenting a more detailed}\\ \quad \quad \quad \quad \text{description of the prop to the \texttt{Employee}.}
+\end{array} \\
+\hline
+\textit{Entry condition} & \text{This use case extends the  \texttt{PropSearch} use case} \\
+\hline
+\textit{Exit condition} & \text{The \texttt{Employee} is looking at the prop description} \\
+\hline
+\textit{Quality requirements} & \text{This use case includes the \texttt{ViewImage} use case} \\
+\hline
+\end{array}
+\]
+5. Vælg forestilling:\\
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{SelectProduction} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Employee}} \\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{Employee} selects a production from the results of a premade}\\ \quad \text{search}\\
+\quad \quad \quad \text{2. \texttt{Props 2.0} responds by presenting a more detailed}\\
+\quad \quad \quad \quad \text{description of the production to the \texttt{Employee}.}
+\end{array} \\
+\hline
+\textit{Entry condition} &
+\text{This use case extends the \texttt{ProductionSearch} use case.}\\
+\hline
+\textit{Exit condition} & \text{The \texttt{Employee} is looking at the production information.} \\
+\hline
+\textit{Quality requirements} & \text{This use case includes the \texttt{ViewGallery} use case.} \\
+\hline
+\end{array}
+\]
+6. Køre/opstil
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{ViewSetUp/RunLists} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Employee}} \\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{Employee} selects the list from the results of a production} \\ \quad \text{search} \\
+\quad \quad \quad \text{2. \texttt{Props 2.0} responds by presenting the list to the}\\ \quad \quad \quad \quad \texttt{Employee.}
+\end{array} \\
+\hline
+\textit{Entry condition} & \text{This use case extends the  \texttt{SelectProduction} use case} \\
+\hline
+\textit{Exit condition} & \text{The \texttt{Employee} is looking at the list} \\
+\hline
+\textit{Quality requirements} & \text{Not yet defined} \\
+\hline
+\end{array}
+\]
+7. Redigér/slet
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{EditProduction} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Chairman}} \\
+& \text{Communitates with \texttt{MySQL}} \\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{Chairman} activates the "Edit production" function} \\
+\quad \quad \quad \text{2. \texttt{Props 2.0} responds by presenting a form to the \texttt{Chairman}}\\
+\text{3. The \texttt{Chairman} fills out the form and submit the changes OR} \\ \quad \text{The \texttt{Chairman} selects the "Delete" option} \\
+\quad \quad \quad \text{4. \texttt{Props 2.0} receives the form, and the MySQL database} \\ \quad \quad \quad \quad \text{gets updated. \texttt{Props 2.0} displays a update- OR}\\\quad \quad \quad \quad \text{delete-comfirmation} 
+\end{array} \\
+\hline
+\textit{Entry condition} & \text{This use case extends the  \texttt{SelectProduction} use case} \\
+\hline
+\textit{Exit condition} & \text{The \texttt{Chairman} has received a confirmation OR} \\ & \text{An explanation indicating why the transaction could not be processed.} \\
+\hline
+\textit{Quality requirements} & \text{Not yet defined} \\
+\hline
+\end{array}
+\]
+8. Se Galleri:
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{ViewGallery} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Employee}}\\ &
+\text{Communicates with \texttt{Cumulus}}\\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{SelectProduction} or \texttt{PropSearch} use case gets evoked}\\
+\quad \quad \quad \text{2. \texttt{Props 2.0} requests \texttt{Cumulus} for the image data}\\
+3.\text{\texttt{Cumulus} returns the matching images}\\
+\quad \quad \quad \text{4. \texttt{Props 2.0} responds by presenting the images as a gallery}
+\end{array} \\
+\hline
+\textit{Entry condition} &
+\text{The \texttt{Employee} must initiate the \texttt{SelectProduction} or \texttt{PropSearch}}\\ &
+\text{use case to initiate this use case}\\
+\hline
+\textit{Exit condition} & \text{The \texttt{Employee} is looking at the gallery.} \\
+\hline
+\textit{Quality requirements} & \text{This use case includes the \texttt{ViewImage} use case.} \\
+\hline
+\end{array}
+\]
+9. Se billede:
+\[
+\begin{array}{ll}
+\hline
+\textit{Use case name} & \texttt{ViewImage} \\
+\hline
+\textit{Participating actors} & \text{Initiated by \texttt{Employee}}\\ &
+\text{Communicates with \texttt{Cumulus}}\\
+\hline
+\textit{Flow of events} & 
+\begin{array}{l}
+\text{1. The \texttt{ViewGallery} or \texttt{SelectProp} use case gets evoked}\\
+\quad \quad \quad \text{2. \texttt{Props 2.0} requests \texttt{Cumulus} for the image}\\
+\text{3. \texttt{Cumulus} returns the matching image}\\
+\quad \quad \quad \text{4. \texttt{Props 2.0} responds by presenting the image to the}\\ \quad \quad \quad \quad\texttt{Employee}
+\end{array} \\
+\hline
+\textit{Entry condition} &
+\text{The \texttt{Employee} must initiate the \texttt{ViewGallery} or \texttt{SelectProp} use}\\ &
+\text{case to initiate this use case}\\
+\hline
+\textit{Exit condition} & \text{The \texttt{Employee} is looking at the image.} \\
+\hline
+\textit{Quality requirements} & \text{Not yet defined} \\
+\hline
+\end{array}
+\]
 \end{document}
