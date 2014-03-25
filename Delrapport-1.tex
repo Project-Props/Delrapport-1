@@ -565,4 +565,31 @@ We have not yet fully specified the search criteria with the client. We know tha
 \hline
 \end{array}
 \]
+\subsection{Appendix B: Client-meetings}
+\subsubsection{13/03/2014 - 1st meeting}
+We had our first meeting with the chairman of The Royal Danish Theatre's (RDT) props department, Mikkel Rasmus Theut, on March 13th 2014. The meeting was held at Mikkel's office from 15.30 to 17.30. \\
+At the meeting we were introduced to the current database-system, \textit{PROPS}, which was developed by an employee in the props department, Claus Nepper Fakkenberg, who is soon retiring.\\
+Mikkel shows us how he (and the employees) use the system, which is only accessible through the theatre's desktop computers, as it is locally installed on the I-drive. \\
+The RDT has at least 5 different platforms they work on: \\\\
+\textit{Props}, their prop database-system \\
+\textit{DKT-net}, their intranet \\
+\textit{kglteater.dk}, their external web-page  \\
+\textit{Kongeplanen}, their planning and scheduling site \\
+\textit{Cumulus}, their media database-system. \\\\
+In the current state, these systems do not interact in any significant way. We discuss the possibility of incorporating the future database-system (for the time being referred to as \textit{Props 2.0}) in \textit{DKT-net}, as this would solve the security problem, due to the already existing login-system. However, the idea is downgraded, as Mikkel points out that \textit{DKT-net} is only used to an minimal extent and a wish to have some sort of guest login to \textit{Props 2.0} is of higher priority, and this would result in a conflict with the intranet-login. \\
+We continue in discussing the wishes for \textit{Props 2.0}, which include a more advanced searching tool with multiple cross-searches, an easy to spot indicator of the "status" of the props - green if available, yellow if \textit{I CONTAINER} and red if in use. In addition the possibility of reserving a prop is desired, and number one priority: A web based system with easy access! \\
+Mikkel informs us of the IT-departments proposal to develop \textit{Props 2.0} with PHP and MySQL - hopefully this wish will be described in more detail at our meeting with Martin, the head of the IT-department, as we would like to work with Python and a suitable framework (eg. Bottle). \\
+Mikkel assures us, if we need any means during the work process to ensure the quality of the product, this will not be a problem.\\
+We schedule our next meeting to be on March 20th 2014 at 10 am. where Martin will be present. We also agree to meet with Palle, Thomas and Charlotte from the furniture subdivision at a later point.
+\subsubsection{20/03/2014 - 2nd meeting}
+At our second meeting with the client, Mikkel and Martin were present. Martin tells us about the different platforms and how they interact:\\
+The data used in \textit{Kongeplanen} lies on a Microsoft server, which our system potentially should be able to interact with in terms of new productions being automatically added to \textit{Props 2.0}. \\
+\textit{Cumulus} is a media database that indexes all of the RDT's media (images, videos, sound-clips), which is separately  stored as tiff files somewhere, and turns them into jpeg files. Martin sees a possibility in adding the prop images to \textit{Cumulus} and then create a "mirror" of that meta data in MySQL, to make it possible for \textit{Props 2.0} to access the images. It will be Martin's responsibility to make this a reality. \\
+We discuss the wish of guest login, stated at our first meeting with Mikkel, and comes to the conclusion that a preferable solution is that guest can access the prop images through \textit{Cumulus}, and therefore access to \textit{Props 2.0} is not needed as the main desire for guests, is to see images of the available props.\\
+We agree to use PHP and MySQL, as Martin is already familiar with these, and multiple of their existing applications is written using exactly PHP and MySQL. We therefore agree that this decision is most expedient, and will most likely also make it possible for Martin, to support the system and possibly extend with future wanted functionalities, himself. \\
+We conclude the meeting in Martin's office, where we are giving a "sandbox"-version of the current database \textit{PROPS}. \\
+We schedule our next meeting to be on March 25th 2014 at 9 am, where Palle and Thomas from the furniture subdivision will be present along with Mikkel. In addition we agree to have a meeting on the 9th of April, where a complete requirements elicitation will be formed. 
+\subsubsection{25/03/2014 - 3rd meeting}
+Our third meeting were held at \textit{Scenografisk Værksted} where Palle, Thomas and Mikkel were present. We discussed the furniture subdivision's use of the database and were giving a tour of the storage, to get a feeling of the day-to-day workflow of the department. \\
+Not a lot of not already mentioned functionalities were emphasized - the focus was mostly on the addition of images of the props, and the way in which the props are added to the database. The latter is primarily Charlotte's responsibility, and the next step in the process is therefore a meeting with her. Hereafter we should be able to make out a initial proposal for the system and its functionalities, to be presented to Mikkel, Martin and a representative from the furniture subdivision, at the meeting on April 9th.
 \end{document}
