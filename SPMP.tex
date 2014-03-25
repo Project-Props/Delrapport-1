@@ -81,7 +81,6 @@ The developers will have a common responsibility to participate in every aspect 
 All changes to the project management plan must be agreed to by all participants before they are implemented. All changes should be documented in the, to the developers, shared log, and in time become a part of the final SPMP.
 \subsection{References}
 All artifacts will conform to the theatres standards.
-% TODO: noget med PHP og mySQL??
 \subsection{Definitions}
 The Royal Danish Theatre uses a lot of different terms in their work, and some of these should also be used in the future database system. The terms we have been presented to so far are listed with a short description below: \\
 Every production has a unique 8-digit number, containing of 4 random digits followed by a dash and premiere-year for this particular production. (There can be multiple productions of, for instance the same play, which then have different premiere-years) \\
@@ -93,14 +92,9 @@ If the production is \textit{I CONTAINER} or similar, the production is not yet 
 The props database and appertaining web-interface will be managed and developed by David Pedersen, Helena Bach and Louise Knudsen. \\
 The photographs of the props and productions, along with the login system and server connection will be handled by Martin. \\
 All managers will be in continuous contact with the chairman of the props department, Mikkel Rasmus Theut, as well as Martin. 
-%\subsubsection{Internal structure}
-%Skal vi have den her med? det samme som partisipants?
-%\subsubsection{Roles and responsibilities}
-% TODO: Noget med opdeling af arbejdet. noget med skill matrix: David 1 i web, Helena og Louise 1 i DB?? Alle vil være indover alle opgaver, men David har ansvaret for web, Helena og Louise for DB?????
 \subsection{Managerial process plans}
 \subsubsection{Start-up plan}
 The total developments time is estimated to be 15 week, counting from 13/03/2014, where first meeting with the client was held. \\
-% TODO: Noget med roller i løbet af processen. \\
 All necessary hardware are available, as well are the software since MySQL and PHP both are open-source.
 \subsubsection{Work plan}
 \underline{Week 1-5:}
@@ -126,38 +120,30 @@ All necessary hardware are available, as well are the software since MySQL and P
   \item Finish PHP-coding and testing.
   \item Final documentation.
 \end{itemize}
-%\subsubsection{Control plan}
-% TODO: Noget i forhold til Roles/responsibilities, med at David har ansvaret for Web, og Helena og Louise har for DB. Vi har fælles ansvar for dokumentation. Dette sker med intern kontakt mindst 2 gange ugenligt.
+% \subsubsection{Control plan}
 \subsubsection{Risk management plan}
 The risk factors and the tracking mechanisms are as follows. \\\\
 As one of the goals of the project is to achieve more functionality than the existing system, there should in the testing-process be compared results between the two. \\\\
 There should in the designing-process be a great amount of communication with the client to ensure an as user-friendly interface as possible, as the system mainly will be used by people with limited computer-experience. \\\\
 There is a slim chance of hardware failure, in which case each developer is responsible for there own computer, and the client holds the responsibility for the server. \\\\
 Each developer is responsible for continuous testing of their assigned subsystem(s) and jointly cross-testing between these. 
-%\subsubsection{Closeout plan}
-% TODO: noget ????
+% \subsubsection{Closeout plan}
 \subsection{Techinical process plans}
-% TODO: skriv at det ikke er muligt endnu
-% TODO: noget med kap 15...
 %\subsubsection{Process model}
 %\subsubsection{Methods, tools, and techniques}
 %\subsubsection{Infrastructure}
 %\subsubsection{Product acceptance plan}
 \subsection{Supporting process plans}
-% TODO:skriv at det ikke er muligt endnu.
+We are not far enough along in the process to be able to make any decisions here.
 \subsubsection{Configuration management plan}
 Git and GitHub will be used in all aspects of the project to ensure version control.
-%\subsubsection{Verification and validation plan}
-% TODO: noget med test ift. 6'eren.
-%\subsubsection{Documentation plan}
-% TODO: måske noget med loggen, og PHP-Doc?
-%\subsubsection{Quality assurance plan}
-% TODO: noget???
-%\subsubsection{Reviews and audits}
-%??
-%\subsubsection{Problem resolution plan}
-%\subsubsection{Subcontractor management plan}
-%\subsubsection{Process improvement plan}
+% \subsubsection{Verification and validation plan}
+% \subsubsection{Documentation plan}
+% \subsubsection{Quality assurance plan}
+% \subsubsection{Reviews and audits}
+% \subsubsection{Problem resolution plan}
+% \subsubsection{Subcontractor management plan}
+% \subsubsection{Process improvement plan}
 \subsection{Additional plans}
 \subsubsection{Presentation}
 In connection with the delivery of the final product, the system and its functionalities will be a presented to the chairman of the props department, Mikkel. \\
@@ -289,18 +275,17 @@ As mentioned in previous sections our final requirement elicitation and project 
 \begin{itemize}
   \item The system should be web-based and usable on standard PC's and tablets, and supported by every OS.
   \item The webapplication should be user friendly and easy to navigate. The most commonly used functionalities, namely the run- and set-up-lists should not be more than 3 clicks away.
-  \item It should be possible for Martin to maintain and support, and possibly expand the system after product-delivery. Therefore the system will be developed using MySQL and PHP, which is familiar to the XX.
+  \item It should be possible for Martin to maintain and support, and possibly expand the system after product-delivery. Therefore the system will be developed using MySQL and PHP, which is familiar to Martin.
   \item The system should be able to communicate with the existing media-database Cumulus.
-  \item noget med firewall login og halløj.
+  \item The system should be secure in a way that prevents people from the outside to corrupt the data.
   \item The interface should be in Danish.
+  \item It should be made in such a way that makes it easy to extend with additonal functionality.
 \end{itemize}
 \subsection{Functional Requirements}
 \begin{itemize}
-  \item It should be possible to do cross search for props, productions and suppliers.
-  \item It should be possible to add, edit and delete props, productions and suppliers.
-  \item noget med Kongeplanen
+  \item It should be possible to do cross search for props, productions, and suppliers.
+  \item It should be possible to add, edit and delete props, productions, and suppliers.
   \item It should be possible to print run- and set-up-lists.
-  \item noget med drag/drop props til run- and set-up-lists.
 \end{itemize}
 \section{Internal project establishment}
 To get an overview of the participants skill set and learn who could be responsible for which subsystems we made a skill matrix.\\
@@ -326,8 +311,8 @@ $\bullet$ = Primary skill \quad $\bigcirc$ = secondary skill \quad $\bigtriangle
 \end{array}
 \]
 When the subsystems get defined, we can now use this matrix to delegate the tasks and responsibilities in the most suitable and efficient way.
-\section{Appendix A}
-\subsection{Use cases}
+\section{Appendices}
+\subsection{Appendix A: Use cases}
 %1. Tilføj Rek
 \[
 \begin{array}{ll}
@@ -354,6 +339,8 @@ When the subsystems get defined, we can now use this matrix to delegate the task
 \end{array}
 \]
 %2. Tilføj forestilling
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
@@ -379,6 +366,8 @@ When the subsystems get defined, we can now use this matrix to delegate the task
 \end{array}
 \]
 %3. Søg
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
@@ -405,6 +394,8 @@ When the subsystems get defined, we can now use this matrix to delegate the task
 \]
 We have not yet fully specified the search criteria with client. We know that separate search-functions for productions, props and suppliers are wanted, but until we have the detailed criteria, we will not include these as specific use cases.  
 %4. Vælg rek
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
@@ -427,6 +418,8 @@ We have not yet fully specified the search criteria with client. We know that se
 \end{array}
 \]
 %5. Vælg forestilling:\\
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
@@ -451,6 +444,8 @@ We have not yet fully specified the search criteria with client. We know that se
 \end{array}
 \]
 %6. Køre/opstil
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
@@ -473,6 +468,8 @@ We have not yet fully specified the search criteria with client. We know that se
 \end{array}
 \]
 %7. Redigér/slet
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
@@ -498,6 +495,8 @@ We have not yet fully specified the search criteria with client. We know that se
 \end{array}
 \]
 %8. Se Galleri:
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
@@ -525,6 +524,8 @@ We have not yet fully specified the search criteria with client. We know that se
 \end{array}
 \]
 %9. Se billede:
+\\
+\\
 \[
 \begin{array}{ll}
 \hline
