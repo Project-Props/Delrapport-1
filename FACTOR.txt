@@ -14,7 +14,7 @@ The FACTOR Criterion
 
 F: (functionality) Keeping track of the props and performances, and help in running these. As well as support the
    administration.
-A: (application domain) Det Kongelige Teaters (The Royal Danish Theater) props department.
+A: (application domain) The Royal Danish Theater props department.
 C: (conditions) The system should be usable by multiple user at a time, wherever there are access to the internet.
 T: (technology) The system will be developed on standard laptops, and should be usable on standard PC's and tablets
    and supported by every OS.
@@ -24,7 +24,7 @@ R: (responsibility) Searching and administrative tool.
 System Definition
 -----------------
 
-A web-based database-system of Det Kongelige Teaters props department. The system should primarily
+A web-based database-system of The Royal Danish Theatre props department. The system should primarily
 be a searching tool used to prepare and run performances and search for props in current and previous productions by the
 assistant stage managers, and secondly be used for budget monitoring, search for supplier information as well as keeping
 track of all performance information, by the chairman of the props department. The system should be usable for people with

@@ -106,6 +106,10 @@ dependent on both the views and the model. However MVC helps with this by
 providing each subsystem with single responsibility thus making each of them
 smaller and more well defined.
 
+The system will also have to interact with other external systems. This will
+primarily be Cumulus for linking a prop in our system with pictures in the media
+database.
+
 Initial subsystem components
 ----------------------------
 
